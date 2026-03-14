@@ -1,0 +1,26 @@
+# Proteção da pasta includes
+
+# Impede acesso direto aos arquivos PHP
+
+# Bloqueia acesso direto via navegador
+
+<Files \*.php>
+Order Allow,Deny
+Deny from all
+</Files>
+
+# Permite acesso apenas via include do PHP
+
+# (os arquivos podem ser incluídos por outros scripts PHP)
+
+# Desabilita listagem de diretórios
+
+Options -Indexes
+
+# Proteção adicional
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

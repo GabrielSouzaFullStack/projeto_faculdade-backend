@@ -1,0 +1,11 @@
+# Tokens de sessão persistente (nunca commitar!)
+.tokens/*.token
+
+# Manter a estrutura da pasta mas ignorar os arquivos
+!.tokens/.htaccess
+!.tokens/index.php
+
+# Uploads de fotos de animais
+uploads/*
+!uploads/.htaccess
+!uploads/index.php

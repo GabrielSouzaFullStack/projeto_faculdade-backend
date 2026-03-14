@@ -1,0 +1,7 @@
+# Proteção da pasta cache
+# Bloqueia acesso HTTP a arquivos de cache
+
+Order Allow,Deny
+Deny from all
+
+Options -Indexes

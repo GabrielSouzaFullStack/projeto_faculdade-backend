@@ -1,0 +1,2 @@
+# Protege a pasta de tokens contra acesso direto via web
+Deny from all

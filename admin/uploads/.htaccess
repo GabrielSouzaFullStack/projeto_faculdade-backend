@@ -1,0 +1,13 @@
+# Protege arquivos sensíveis mas permite visualização de imagens
+
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|htm|shtml|sh|cgi)$">
+Order Deny,Allow
+Deny from all
+</FilesMatch>
+
+# Permite acesso apenas a imagens
+
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|ico|svg)$">
+Order Allow,Deny
+Allow from all
+</FilesMatch>

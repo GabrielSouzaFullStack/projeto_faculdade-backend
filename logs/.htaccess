@@ -1,0 +1,7 @@
+# Proteção da pasta logs
+# Bloqueia acesso HTTP a arquivos de log
+
+Order Allow,Deny
+Deny from all
+
+Options -Indexes

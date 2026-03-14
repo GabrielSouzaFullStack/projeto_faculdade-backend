@@ -1,0 +1,585 @@
+/* Estilos específicos para gerenciamento de animais */
+
+.animal-form {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Seções do Formulário */
+.form-section {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+}
+
+.form-section-header {
+  margin-bottom: 20px;
+}
+
+.form-section-header h3 {
+  margin: 0 0 5px 0;
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.form-section-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+/* Labels com ícones */
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.label-icon {
+  font-size: 16px;
+}
+
+.required-mark {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+.form-text {
+  display: block;
+  margin-top: 5px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid var(--gray-200);
+}
+
+/* Preview de foto moderno */
+.photo-upload-area {
+  position: relative;
+}
+
+.form-control-file {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.photo-preview-modern {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  border: 3px dashed var(--gray-300);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 10px;
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.photo-preview-modern:hover {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  transform: scale(1.02);
+}
+
+.photo-preview-modern img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-preview-modern:hover .photo-overlay {
+  opacity: 1;
+}
+
+.photo-change-text {
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.photo-preview-placeholder {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 20px;
+}
+
+/* Checkboxes modernos como cards */
+.checkbox-group-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.checkbox-card {
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+
+.checkbox-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--white);
+  border: 2px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 120px;
+}
+
+.checkbox-card:hover .checkbox-card-content {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.checkbox-card input:checked ~ .checkbox-card-content {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-color: var(--success);
+  border-width: 3px;
+}
+
+.checkbox-card-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.checkbox-card-label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.checkbox-card-check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: var(--success);
+  color: white;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.checkbox-card input:checked ~ .checkbox-card-content .checkbox-card-check {
+  display: flex;
+}
+
+/* Cards de animais */
+.animals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.animal-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.animal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.animal-card-image {
+  width: 100%;
+  height: 200px;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  overflow: hidden;
+}
+
+.animal-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.animal-card-body {
+  padding: 16px;
+}
+
+.animal-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+}
+
+.animal-card-info {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.animal-card-info span {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.animal-card-description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.animal-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.animal-card-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* Filtros Modernos */
+.filters-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 25px;
+  border: 1px solid var(--gray-200);
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.filters-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filters-active-badge {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1976d2 100%);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filters-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+@media (max-width: 968px) {
+  .filters-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+/* Inputs com ícones removidos - usando apenas os do label */
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Melhorias no form-control dentro dos filtros */
+.filters-card .form-control {
+  height: 44px;
+  font-size: 14px;
+}
+
+.filters-card select.form-control {
+  cursor: pointer;
+}
+
+.input-clear {
+  position: absolute;
+  right: 10px;
+  background: var(--gray-300);
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.input-clear:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  min-width: 110px;
+  justify-content: center;
+  height: 44px;
+  font-weight: 600;
+}
+
+.btn-filter span {
+  font-size: 16px;
+}
+
+.btn-clear {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  font-weight: 600;
+}
+
+.btn-clear span {
+  font-size: 16px;
+}
+
+/* Checkbox/Radio customizado - mantido para compatibilidade */
+.checkbox-group,
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.checkbox-item,
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"],
+.radio-item input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checkbox-item label,
+.radio-item label {
+  cursor: pointer;
+}
+
+/* Modo de visualização lista */
+.view-mode-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.view-mode-toggle button {
+  padding: 8px 12px;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.view-mode-toggle button.active {
+  background: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+@media (max-width: 920px) {
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .animal-form {
+    padding: 18px;
+  }
+
+  .form-section {
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .checkbox-group-modern {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-preview-modern {
+    max-width: 100%;
+    height: 240px;
+  }
+
+  .filters-card {
+    padding: 16px;
+  }
+
+  .filters-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .filter-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .btn-filter,
+  .btn-clear {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .animals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .animal-card-actions {
+    flex-direction: column;
+  }
+
+  .animal-card-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .checkbox-group-modern {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-preview-modern {
+    height: 200px;
+  }
+}
