@@ -211,7 +211,7 @@ require_once __DIR__ . '/layout-header.php';
                             <div class="photo-preview-placeholder">
                                 <span style="font-size: 64px; opacity: 0.3;">📷</span>
                                 <p style="margin: 15px 0 5px; font-weight: 500;">Clique ou arraste a foto aqui</p>
-                                <small style="color: var(--text-muted);">JPG, PNG, GIF ou WEBP • Máx: 5MB</small>
+                                <small style="color: var(--text-muted);">JPG, JPEG, PNG | Tamanho de arquivo permitido: 5MB</small>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -237,15 +237,19 @@ require_once __DIR__ . '/layout-header.php';
 
         if (file) {
             // Validação de tipo
-            const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            const validTypes = [
+                'image/jpg',
+                'image/jpeg',
+                'image/png'
+            ];
             if (!validTypes.includes(file.type)) {
-                alert('❌ Formato inválido! Use JPG, PNG, GIF ou WEBP.');
+                alert('Formato inválido! Use JPG, PNG.');
                 return;
             }
 
             // Validação de tamanho (5MB)
             if (file.size > 5 * 1024 * 1024) {
-                alert('❌ Arquivo muito grande! Tamanho máximo: 5MB');
+                alert('Arquivo muito grande! Tamanho máximo: 5MB');
                 return;
             }
 

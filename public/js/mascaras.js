@@ -69,10 +69,13 @@ function aplicarMascaraCPF(input) {
     }
 
     // Aplica a formatação: 123.456.789-00
-    valor = valor.replace(/^(\d{3})(\d{3})(\d{3})(\d{2}).*/, "$1.$2.$3-$4");
-    valor = valor.replace(/^(\d{3})(\d{3})(\d{3})(\d{0,2})/, "$1.$2.$3-$4");
-    valor = valor.replace(/^(\d{3})(\d{3})(\d{0,3})/, "$1.$2.$3");
-    valor = valor.replace(/^(\d{3})(\d{0,3})/, "$1.$2");
+    if (valor.length > 9) {
+      valor = valor.replace(/^(\d{3})(\d{3})(\d{3})(\d{0,2})$/, "$1.$2.$3-$4");
+    } else if (valor.length > 6) {
+      valor = valor.replace(/^(\d{3})(\d{3})(\d{0,3})$/, "$1.$2.$3");
+    } else if (valor.length > 3) {
+      valor = valor.replace(/^(\d{3})(\d{0,3})$/, "$1.$2");
+    }
 
     e.target.value = valor;
   });
